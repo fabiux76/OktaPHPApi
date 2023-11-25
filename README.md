@@ -1,11 +1,8 @@
-PHP API Quickstart
-==================
+# PHP API Quickstart
 
 This is the completed project corresponding to the guide "[Protect your API endpoints](https://developer.okta.com/docs/guides/protect-your-api/php/main/)".
 
-
-Getting Started
----------------
+## Getting Started
 
 Install dependencies:
 
@@ -18,7 +15,7 @@ Copy the file `.env.example` to `.env` and fill in your Okta issuer and audience
 Run the app with the built-in PHP server:
 
 ```bash
-php -S 127.0.0.1:8080 -t public
+php -S 127.0.0.1:9001 -t public
 ```
 
 Get an access token by using an OAuth client such as https://example-app.com/client. Make a request with that access token to this API, such as:
