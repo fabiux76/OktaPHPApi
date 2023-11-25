@@ -5,6 +5,10 @@ $dotenv = Dotenv\Dotenv::createImmutable(__DIR__.'/..');
 $dotenv->load();
 
 header('Access-Control-Allow-Origin: *');
+header('Access-Control-Allow-Methods: GET,HEAD,OPTIONS,POST,PUT');
+header('Access-Control-Allow-Credentials: true');
+//header('Access-Control-Allow-Headers: Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers');
+header('Access-Control-Allow-Headers: Authorization');
 
 // Uncomment this to require a valid access token for every route
 // if(!hasValidAccessToken()) {
@@ -14,16 +18,19 @@ header('Access-Control-Allow-Origin: *');
 // }
 
 $path = rawurldecode(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH));
-switch($path) {
 
-  case '/api/whoami':
-    whoami();
-    break;
+if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+  switch($path) {
 
-  case '/api/hello':
-    hello();
-    break;
-
+    case '/api/whoami':
+      whoami();
+      break;
+  
+    case '/api/hello':
+      hello();
+      break;
+  
+  }
 }
 
 function whoami() {
